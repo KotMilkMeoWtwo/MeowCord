@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Button button;
-    public static int MAX_LENGTH_MESSAGE = 1500;
+    public static int MAX_LENGTH_MESSAGE = 150;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
 
