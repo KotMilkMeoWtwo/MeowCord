@@ -1,2 +1,2 @@
 # MeowCord
-Sample chat for android on firebase
+Sample chat for android on firebase.
