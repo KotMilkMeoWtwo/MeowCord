@@ -24,6 +24,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+    /*
     Button button;
     public static int MAX_LENGTH_MESSAGE = 1500;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -94,5 +100,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+     */
 
 }
