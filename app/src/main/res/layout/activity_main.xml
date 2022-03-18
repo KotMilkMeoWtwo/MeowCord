@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/main_activity"
     tools:context=".MainActivity">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -34,17 +35,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <ListView
+        android:id="@+id/messages_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/text_layout"
-        android:id="@+id/messages_list"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="15dp"
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="15dp"
-        >
-    </ListView>
+        android:divider="@android:color/transparent"
+        android:dividerHeight="15dp"></ListView>
     <!--
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
