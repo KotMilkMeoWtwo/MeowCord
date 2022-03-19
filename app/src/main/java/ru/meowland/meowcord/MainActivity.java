@@ -3,6 +3,7 @@ package ru.meowland.meowcord;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -18,6 +19,7 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,24 +28,29 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout activity_main;
     private FloatingActionButton sendButton;
     private FirebaseListAdapter<Message> adapter;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("mess");
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        sendButton = findViewById(R.id.buttonSend);
-
+        sendButton = findViewById(R.id.button_send);
+        myRef.setValue("Hello, World!");
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText textField = findViewById(R.id.messageField);
+                Log.println(Log.ERROR, "1", "ня");
                 if(textField.getText().toString().equals("")){
+                    Snackbar.make(activity_main, "Сообщение не должно быть пустым", Snackbar.LENGTH_SHORT).show();
+                    Log.println(Log.ERROR, "1", "meow");
                     return;
                 }
                 FirebaseDatabase.getInstance().getReference().push().setValue(
                         new Message(
                         FirebaseAuth.getInstance().getCurrentUser().getDisplayName(),
                         textField.getText().toString()
-                    )
+                        )
                 );
                 textField.setText("");
             }
@@ -54,8 +61,10 @@ public class MainActivity extends AppCompatActivity {
             if(requestCode == RESULT_OK){
                 Snackbar.make(activity_main, "You sing in now", Snackbar.LENGTH_SHORT).show();
                 displayALLMessages();
+                Log.println(Log.ERROR, "1", "да");
             }else {
                 Snackbar.make(activity_main, "You not sing in now", Snackbar.LENGTH_SHORT).show();
+                Log.println(Log.ERROR, "1", "нет");
                 finish();
             }
 
@@ -72,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             Snackbar.make(activity_main, "You sing in now", Snackbar.LENGTH_SHORT).show();
-
             displayALLMessages();
         }
     }

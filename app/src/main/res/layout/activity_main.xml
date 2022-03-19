@@ -7,25 +7,28 @@
     android:orientation="vertical"
     android:id="@+id/main_activity"
     tools:context=".MainActivity">
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonSend"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5sp"
+        android:layout_marginTop="5sp"
+        android:layout_marginEnd="5sp"
+        android:layout_marginBottom="5sp"
         android:clickable="true"
         android:src="@drawable/ic_send_button"
         android:tint="@color/black"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="5sp"
-        app:fabSize="mini"
-        />
+        app:fabSize="mini" />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/text_layout"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@id/buttonSend">
+        android:layout_toLeftOf="@id/button_send">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
