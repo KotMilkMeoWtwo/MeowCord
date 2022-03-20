@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditText textField = findViewById(R.id.message_field);
-                if(textField.toString().equals("")){
+                if(textField.getText().toString().equals("") || textField.getText().toString().equals(" ")){
                     Snackbar.make(activity_main, "Message is not null", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
