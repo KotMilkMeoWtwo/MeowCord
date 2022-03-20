@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout activity_main;
     private FirebaseListAdapter<Message> adapter;
     private FloatingActionButton sendButton;
+    private int MAX_MESSAGE_LENS=100;
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 EditText textField = findViewById(R.id.message_field);
                 if(textField.getText().toString().equals("") || textField.getText().toString().equals(" ") || textField.getText().toString().equals("  ") || textField.getText().toString().equals("   ") || textField.getText().toString().equals("    ")){
                     Snackbar.make(activity_main, "Message is not null", Snackbar.LENGTH_SHORT).show();
+                    return;
+                } else if(MAX_MESSAGE_LENS < textField.getText().toString().length()){
+                    Snackbar.make(activity_main, "Max message length"+ MAX_MESSAGE_LENS, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 FirebaseDatabase.getInstance().getReference().push().setValue(
