@@ -43,6 +43,8 @@
         android:divider="@color/fui_transparent"
         android:dividerHeight="15dp"
         android:layout_marginBottom="15dp"
+        android:transcriptMode="alwaysScroll"
+        android:stackFromBottom="true"
         >
     </ListView>
 </RelativeLayout>
