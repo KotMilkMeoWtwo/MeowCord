@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">MeowCord</string>
-    <string name="send_button_name">Send</string>
-    <string name="input_message">input message:</string>
 </resources>

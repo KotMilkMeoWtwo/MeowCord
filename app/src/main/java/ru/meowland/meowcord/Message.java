@@ -7,8 +7,8 @@ public class Message {
     public String textMessage;
     private long messageTime;
 
-    public Message(){}
-    public Message(String nickName, String textMessage){
+    public  Message(){}
+    public Message(String nickName, String textMessage) {
         this.nickName = nickName;
         this.textMessage = textMessage;
         this.messageTime = new Date().getTime();
